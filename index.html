@@ -19,7 +19,7 @@
             min-height: 100vh;
         }
         .page-container {
-            margin: 132px auto 64px;
+            margin: 118px auto 64px;
             max-width: 960px;
             padding: 0 28px;
         }
@@ -28,7 +28,7 @@
         }
         .section {
             margin-bottom: 30px;
-            scroll-margin-top: 140px;
+            scroll-margin-top: 150px;
         }
         .section p {
             margin-bottom: 14px;
@@ -121,9 +121,9 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            padding: 14px clamp(18px, 4vw, 46px);
-            gap: 14px;
-            flex-wrap: wrap;
+            padding: 12px clamp(18px, 4vw, 42px);
+            gap: 12px;
+            flex-wrap: nowrap;
             backdrop-filter: saturate(1.25) blur(12px);
         }
         .dark-mode .topbar {
@@ -138,8 +138,9 @@
             margin-right: 10px;
         }
         .topbar .search {
-            margin-right: 10px;
+            margin-right: 8px;
             flex: 0 1 240px;
+            min-width: 160px;
         }
         .topbar .search-field {
             display: flex;
@@ -178,21 +179,34 @@
         }
         .topbar .navlinks {
             display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            flex: 1;
+            gap: 10px;
+            flex-wrap: nowrap;
+            flex: 1 1 auto;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            scroll-snap-type: x proximity;
+            padding-bottom: 4px;
+            min-width: 0;
+        }
+        .topbar .navlinks::-webkit-scrollbar {
+            display: none;
         }
         .topbar .navlinks a {
             text-decoration: none;
             color: inherit;
             font-weight: 500;
             padding: 4px 10px;
-            border-radius: 4px;
+            border-radius: 999px;
             transition: background 0.2s;
             white-space: nowrap;
+            flex: 0 0 auto;
+            scroll-snap-align: center;
         }
         .topbar .nav-actions {
             flex: 0 0 auto;
+            margin-left: 8px;
             margin-right: 0;
             display: flex;
             align-items: center;
@@ -233,42 +247,35 @@
         }
         @media (max-width: 900px) {
             .page-container {
-                margin: 140px auto 56px;
-                padding: 0 22px;
+                margin: 128px auto 56px;
+                padding: 0 20px;
             }
             .topbar {
                 top: 10px;
                 left: 18px;
                 right: 18px;
                 border-radius: 20px;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 14px 20px;
+                padding: 12px 18px;
                 gap: 10px;
             }
             .topbar .navlinks {
-                flex-wrap: wrap;
-                gap: 6px;
+                gap: 8px;
             }
             .topbar .search {
-                width: 100%;
-                margin-bottom: 6px;
+                flex: 0 1 220px;
                 margin-right: 0;
-                flex: 1 1 100%;
             }
             .topbar .nav-actions {
-                margin-right: 0;
-                width: 100%;
-                justify-content: flex-end;
+                margin-left: 6px;
             }
             .social-sidebar {
-                left: 6px;
+                left: 8px;
             }
         }
         @media (max-width: 768px) {
             .page-container {
-                margin: 148px auto 52px;
-                padding: 0 20px;
+                margin: 136px auto 50px;
+                padding: 0 18px;
             }
             .section {
                 margin-bottom: 26px;
@@ -279,113 +286,165 @@
             h2 {
                 font-size: 1.4rem;
             }
+            .topbar {
+                left: 16px;
+                right: 16px;
+                padding: 12px 16px;
+                gap: 8px;
+            }
+            .topbar .search {
+                flex: 0 1 210px;
+            }
             .topbar .navlinks a {
                 padding: 4px 8px;
+                font-size: 0.95rem;
             }
         }
         @media (max-width: 600px) {
             .page-container {
-                margin: 168px auto 46px;
+                margin: 148px auto 44px;
                 padding: 0 16px;
+                padding-bottom: 80px;
             }
             .topbar {
                 top: 8px;
                 left: 12px;
                 right: 12px;
                 border-radius: 18px;
-                flex-direction: column;
-                align-items: stretch;
-                padding: 14px 16px;
-                gap: 8px;
+                padding: 12px 14px;
+                gap: 6px;
             }
             .topbar .name {
-                font-size: 1.05em;
+                font-size: 0.95em;
+                flex: 0 0 auto;
             }
             .topbar .navlinks {
-                flex-wrap: wrap;
-                gap: 4px;
-                width: 100%;
+                gap: 6px;
+                justify-content: flex-start;
             }
             .topbar .search {
-                width: 100%;
-                margin-bottom: 6px;
+                flex: 0 1 46%;
+                margin-right: 0;
+                min-width: 140px;
+            }
+            .topbar .search-field {
+                padding: 8px 12px 8px 14px;
             }
             .topbar .nav-actions {
-                width: 100%;
-                justify-content: flex-end;
+                margin-left: 4px;
             }
             body {
-                font-size: 0.98rem;
+                font-size: 0.95rem;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.68rem;
             }
             h2 {
-                font-size: 1.32rem;
+                font-size: 1.26rem;
             }
             .section {
-                scroll-margin-top: 160px;
+                scroll-margin-top: 170px;
             }
             .contact-form button {
                 width: 100%;
                 text-align: center;
             }
+            .social-sidebar {
+                top: auto;
+                bottom: 14px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                flex-direction: row;
+                border-radius: 16px;
+                padding: 8px 14px;
+                gap: 14px;
+                justify-content: center;
+            }
+            .social-sidebar a {
+                width: 38px;
+                height: 38px;
+            }
+            .social-sidebar svg {
+                width: 20px;
+                height: 20px;
+            }
         }
         @media (max-width: 480px) {
             .page-container {
-                margin: 182px auto 40px;
+                margin: 158px auto 38px;
                 padding: 0 14px;
+                padding-bottom: 84px;
             }
             .topbar {
-                gap: 8px;
                 left: 10px;
                 right: 10px;
                 border-radius: 16px;
+                padding: 12px 13px;
+                gap: 6px;
+            }
+            .topbar .search {
+                flex: 0 1 44%;
+                min-width: 130px;
             }
             .topbar .navlinks {
                 gap: 6px;
             }
             .topbar .navlinks a {
-                flex: 1 1 calc(50% - 6px);
-                text-align: center;
-                padding: 6px 8px;
-                border: 1px solid rgba(0,0,0,0.08);
-                font-size: 0.95rem;
-            }
-            .dark-mode .topbar .navlinks a {
-                border-color: rgba(255,255,255,0.12);
+                padding: 4px 9px;
+                font-size: 0.88rem;
             }
             .topbar .toggle-btn {
-                align-self: flex-end;
+                font-size: 1.15em;
             }
             iframe {
-                height: 320px;
+                height: 300px;
+            }
+            .social-sidebar {
+                gap: 12px;
+                padding: 8px 12px;
             }
             .social-sidebar a {
                 width: 36px;
                 height: 36px;
             }
             .social-sidebar svg {
-                width: 20px;
-                height: 20px;
-            }
-            .section {
-                scroll-margin-top: 180px;
-            }
-            body {
-                font-size: 0.96rem;
+                width: 18px;
+                height: 18px;
             }
         }
         @media (max-width: 360px) {
+            .page-container {
+                margin: 166px auto 34px;
+                padding-bottom: 88px;
+            }
             .topbar {
                 left: 8px;
                 right: 8px;
+                padding: 12px 12px;
+                gap: 4px;
+            }
+            .topbar .search {
+                flex: 0 1 42%;
+                min-width: 120px;
             }
             .topbar .navlinks a {
-                flex: 1 1 100%;
+                font-size: 0.84rem;
+                padding: 4px 8px;
             }
             iframe {
-                height: 280px;
+                height: 260px;
+            }
+            .social-sidebar {
+                gap: 10px;
+                padding: 8px 10px;
+            }
+            .social-sidebar a {
+                width: 34px;
+                height: 34px;
+            }
+            .social-sidebar svg {
+                width: 17px;
+                height: 17px;
             }
         }
         @media (min-width: 1200px) {
