@@ -209,6 +209,7 @@
             flex: 0 0 auto;
             text-decoration: none;
             color: inherit;
+            cursor: pointer; /* clickable but not styled as a link */
         }
         .topbar .profile-icon {
             width: 36px;
@@ -623,7 +624,7 @@
         </a>
     </nav>
     <div class="topbar">
-        <div class="identity">
+        <div class="identity" id="topTrigger" role="button" aria-label="Back to top" tabindex="0">
             <span class="profile-icon" aria-hidden="true"></span>
             <span class="name">Uday Pratap</span>
         </div>
@@ -677,6 +678,22 @@
                 toggleBtn.classList.remove('dark');
             }
         });
+        // Click/keyboard on identity scrolls to top
+        const topTrigger = document.getElementById('topTrigger');
+        if (topTrigger) {
+            const goTop = () => {
+                const topSection = document.getElementById('top');
+                if (topSection) topSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                else window.scrollTo({ top: 0, behavior: 'smooth' });
+            };
+            topTrigger.addEventListener('click', goTop);
+            topTrigger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    goTop();
+                }
+            });
+        }
     </script>
     <main class="page-container">
     <div class="section" id="top">
