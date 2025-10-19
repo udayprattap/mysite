@@ -49,134 +49,149 @@
         .dark-mode h1, .dark-mode h2 {
             color: #eee;
         }
-        .toggle-btn {
+        .topbar {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #333;
-            color: #fff;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        .toggle-btn.dark {
-            background: #eee;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background: #fff;
             color: #333;
-        }
-        .contact-form {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .contact-form label {
-            display: block;
-            margin-bottom: 6px;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            background: #0077b5;
-            color: #fff;
-            border: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             padding: 10px 20px;
+        }
+        .dark-mode .topbar {
+            background: #181818;
+            color: #eee;
+        }
+        .topbar .name {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-right: 20px;
+        }
+        .topbar .search {
+            flex: 1;
+            margin: 0 20px;
+        }
+        .topbar input[type="text"] {
+            padding: 6px 10px;
             border-radius: 4px;
-            cursor: pointer;
+            border: 1px solid #ccc;
+            width: 180px;
         }
-        .contact-form button:hover {
-            background: #005983;
+        .topbar .navlinks {
+            display: flex;
+            gap: 12px;
         }
-        .dark-mode .contact-form {
+        .topbar .navlinks a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .topbar .navlinks a:hover {
+            background: #f0f0f0;
+        }
+        .dark-mode .topbar .navlinks a:hover {
             background: #222;
-            color: #eee;
         }
-        .dark-mode .contact-form input, .dark-mode .contact-form textarea {
-            background: #333;
-            color: #eee;
-            border: 1px solid #444;
+        .topbar .toggle-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.3em;
+            margin-left: 10px;
         }
-        .dark-mode .contact-form button {
-            background: #20beff;
-            color: #181818;
+        .topbar .toggle-btn svg {
+            vertical-align: middle;
         }
-        .dark-mode .contact-form button:hover {
-            background: #0077b5;
-            color: #fff;
-        }
-        iframe {
-            width: 100%;
-            min-width: 0;
-            border-radius: 8px;
+        .spacer {
+            height: 60px;
         }
         @media (max-width: 600px) {
-            body {
-                margin: 0;
-                padding: 0 5px;
-                max-width: 100vw;
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 5px;
             }
-            .section {
-                margin-bottom: 20px;
-                padding: 10px 0;
+            .topbar .search {
+                margin: 10px 0;
+                width: 100%;
             }
-            h1 {
-                font-size: 2em;
+            .topbar input[type="text"] {
+                width: 100%;
             }
-            h2 {
-                font-size: 1.2em;
-            }
-            .toggle-btn {
-                top: 10px;
-                right: 10px;
-                padding: 6px 12px;
-                font-size: 1em;
-            }
-            .contact-form {
-                padding: 10px;
-            }
-            iframe {
-                height: 300px;
+            .spacer {
+                height: 90px;
             }
         }
     </style>
 </head>
 <body>
-    <button class="toggle-btn" id="toggleDark">Dark Mode</button>
+    <div class="topbar">
+        <span class="name">Uday Pratap</span>
+        <form class="search" onsubmit="searchContent(event)">
+            <input type="text" id="searchInput" placeholder="Search..." />
+        </form>
+        <div class="navlinks">
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#projects">Projects</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#extracurricular">Extracurricular</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="toggle-btn" id="toggleDark" title="Toggle dark/light mode">
+            <span id="modeIcon">&#x1F311;</span>
+        </button>
+    </div>
+    <div class="spacer"></div>
     <script>
         // Set initial mode based on system preference
         function setInitialMode() {
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (prefersDark) {
                 document.body.classList.add('dark-mode');
-                toggleBtn.textContent = 'Light Mode';
+                modeIcon.innerHTML = '&#x2600;'; // Sun for light mode
                 toggleBtn.classList.add('dark');
             } else {
                 document.body.classList.remove('dark-mode');
-                toggleBtn.textContent = 'Dark Mode';
+                modeIcon.innerHTML = '&#x1F311;'; // Moon for dark mode
                 toggleBtn.classList.remove('dark');
             }
         }
         const toggleBtn = document.getElementById('toggleDark');
+        const modeIcon = document.getElementById('modeIcon');
         setInitialMode();
-        // Listen for system changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setInitialMode);
-        // Manual toggle
         toggleBtn.addEventListener('click', function() {
             document.body.classList.toggle('dark-mode');
             if(document.body.classList.contains('dark-mode')) {
-                toggleBtn.textContent = 'Light Mode';
+                modeIcon.innerHTML = '&#x2600;'; // Sun
                 toggleBtn.classList.add('dark');
             } else {
-                toggleBtn.textContent = 'Dark Mode';
+                modeIcon.innerHTML = '&#x1F311;'; // Moon
                 toggleBtn.classList.remove('dark');
             }
         });
+        // Search functionality
+        function searchContent(e) {
+            e.preventDefault();
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            if (!query) return;
+            const bodyText = document.body.innerText.toLowerCase();
+            if (bodyText.includes(query)) {
+                alert('Found: ' + query);
+            } else {
+                alert('Not found: ' + query);
+            }
+        }
     </script>
     <div class="section">
         <h1>Uday Pratap</h1>
@@ -200,7 +215,7 @@
         </p>
     </div>
 
-    <div class="section">
+    <div class="section" id="education">
         <h2>Education</h2>
         <ul>
             <li>
@@ -216,7 +231,7 @@
         </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="skills">
         <h2>Technical Skills</h2>
         <ul>
             <li>Programming Languages: Python, SQL</li>
@@ -230,12 +245,12 @@
         </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="certifications">
         <h2>Certifications & Credentials</h2>
         <p>View my complete list of certifications and credentials on <a href="https://www.linkedin.com/in/udayprattap/details/certifications/" target="_blank">LinkedIn</a>.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="projects">
         <h2>Projects & Experience</h2>
         <ul>
             <li><strong>Time Series Forecasting Project</strong> – Built predictive models for time series data using Python and scikit-learn.</li>
@@ -245,14 +260,14 @@
         </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="portfolio">
         <h2>Project Portfolio</h2>
         <p>You can view my complete project portfolio, code, and work descriptions directly below:</p>
         <iframe src="https://docs.google.com/spreadsheets/d/1d8N2YBM7GCP4apQNFi0dLhTNEglHhSqeHhjHJG2Y6ug/edit?usp=sharing" width="100%" height="500" style="border:1px solid #ccc;"></iframe>
         <p>For a full view and easier navigation, <a href="https://docs.google.com/spreadsheets/d/1d8N2YBM7GCP4apQNFi0dLhTNEglHhSqeHhjHJG2Y6ug/edit?gid=0#gid=0" target="_blank">open the spreadsheet in a new tab</a>.</p>
     </div>
 
-    <div class="section">
+    <div class="section" id="extracurricular">
         <h2>Extracurricular Activities</h2>
         <ul>
             <li>Led a team to organize the event <strong>PPL 2.0</strong>, demonstrating leadership and communication skills.</li>
@@ -288,7 +303,7 @@
         </ul>
     </div>
 
-    <div class="section">
+    <div class="section" id="contact">
         <h2>Contact Me</h2>
         <form class="contact-form" action="https://formspree.io/f/mblzbdnz" method="POST">
             <label for="name">Name:</label>
