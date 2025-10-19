@@ -1,0 +1,6 @@
+# robots.txt for Uday Pratap portfolio
+User-agent: *
+Allow: /
+
+# Point crawlers to the sitemap
+Sitemap: https://udayprattap.github.io/mysite/sitemap.xml
