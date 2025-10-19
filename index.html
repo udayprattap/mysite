@@ -25,52 +25,29 @@
             margin: 0;
             padding-left: 20px;
         }
-        .sidebar {
-            position: fixed;
-            top: 70px;
-            left: 0;
-            width: 60px;
-            height: calc(100vh - 70px);
-            background: #fff;
-            border-right: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 3000;
-            padding-top: 10px;
+        .profiles a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: #0077b5;
         }
-        .dark-mode .sidebar {
-            background: #181818;
-            border-right: 1px solid #222;
-        }
-        .sidebar a {
-            margin: 12px 0;
-            display: block;
+        .profiles a.github {
             color: #333;
-            font-size: 1.7em;
-            transition: color 0.2s;
         }
-        .sidebar a.linkedin { color: #0077b5; }
-        .sidebar a.github { color: #333; }
-        .sidebar a.kaggle { color: #20beff; }
-        .sidebar a.youtube { color: #ff0000; }
-        .sidebar a.instagram { color: #e4405f; }
-        .sidebar a.email { color: #0077b5; font-size: 1.3em; }
-        .sidebar a:hover { color: #005983; }
-        .sidebar .label {
-            font-size: 0.7em;
-            color: #888;
-            margin-top: 2px;
-            text-align: center;
+        .profiles a.kaggle {
+            color: #20beff;
         }
-        @media (max-width: 800px) {
-            .sidebar { display: none; }
+        .profiles a.youtube {
+            color: #ff0000;
         }
-        .main-content {
-            margin-left: 70px;
+        .profiles a.instagram {
+            color: #e4405f;
         }
-        @media (max-width: 800px) {
-            .main-content { margin-left: 0; }
+        .dark-mode {
+            background: #181818;
+            color: #eee;
+        }
+        .dark-mode h1, .dark-mode h2 {
+            color: #eee;
         }
         .topbar {
             position: fixed;
@@ -156,27 +133,6 @@
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a class="linkedin" href="https://www.linkedin.com/in/udayprattap/" target="_blank" title="LinkedIn">
-            <span aria-label="LinkedIn">&#x1F465;</span>
-        </a>
-        <a class="github" href="https://github.com/udayprattap" target="_blank" title="GitHub">
-            <span aria-label="GitHub">&#x1F5C3;</span>
-        </a>
-        <a class="kaggle" href="https://www.kaggle.com/udayprattap" target="_blank" title="Kaggle">
-            <span aria-label="Kaggle">&#x1F4C8;</span>
-        </a>
-        <a class="youtube" href="https://www.youtube.com/@datanerdss" target="_blank" title="YouTube">
-            <span aria-label="YouTube">&#x1F4FA;</span>
-        </a>
-        <a class="instagram" href="https://www.instagram.com/datanerdss/" target="_blank" title="Instagram">
-            <span aria-label="Instagram">&#x1F4F7;</span>
-        </a>
-        <a class="email" href="mailto:24ds3000019@ds.study.iitm.ac.in" title="Email">
-            <span aria-label="Email">&#x2709;</span>
-        </a>
-    </div>
-    <div class="main-content">
     <div class="topbar">
         <span class="name">Uday Pratap</span>
         <form class="search" onsubmit="searchContent(event)">
@@ -359,7 +315,6 @@
             <button type="submit">Send</button>
         </form>
         <p style="font-size:0.9em;color:#888;">* This form is secured by Formspree. Update the action URL with your Formspree endpoint for full functionality.</p>
-    </div>
     </div>
 </body>
 </html>
