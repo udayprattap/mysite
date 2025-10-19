@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Uday Pratap | Data Science Portfolio - IIT Madras PG Diploma, top Kaggle projects, ML skills, and contact info for internship opportunities.">
+        <meta name="keywords" content="Uday Pratap, Data Science, IIT Madras, Kaggle, Machine Learning, Internship, Portfolio, Python, ML Projects">
+        <meta name="author" content="Uday Pratap">
+        <meta property="og:title" content="Uday Pratap | Data Science Portfolio">
+        <meta property="og:description" content="IIT Madras PG Diploma, top Kaggle projects, ML skills, and contact info for internship opportunities.">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://github.com/udayprattap/mysite">
+        <meta property="og:image" content="https://avatars.githubusercontent.com/u/udayprattap?s=400">
+        <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/udayprattap?s=64">
+        <!-- JSON-LD Person Schema -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Uday Pratap",
+            "url": "https://github.com/udayprattap/mysite",
+            "image": "https://avatars.githubusercontent.com/u/udayprattap?s=400",
+            "jobTitle": "Data Science Intern",
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Indian Institute of Technology Madras"
+            },
+            "sameAs": [
+                "https://www.linkedin.com/in/udayprattap/",
+                "https://github.com/udayprattap",
+                "https://www.kaggle.com/udayprattap",
+                "https://www.youtube.com/@datanerdss",
+                "https://www.instagram.com/datanerdss/"
+            ]
+        }
+        </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uday Pratap | Data Science Portfolio</title>
@@ -30,6 +62,41 @@
             margin-bottom: 30px;
             scroll-margin-top: 150px;
         }
+        /* Highlight important links (non-social) */
+        a:not(.github):not(.linkedin):not(.kaggle):not(.youtube):not(.instagram) {
+            color: #1976d2;
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .dark-mode a:not(.github):not(.linkedin):not(.kaggle):not(.youtube):not(.instagram) {
+            color: #90caf9;
+        }
+        /* Subtle highlight for IIT Madras */
+        .edu-highlight {
+            background: linear-gradient(90deg, #e3f2fd 60%, transparent 100%);
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-weight: 700;
+            color: #1565c0;
+            box-shadow: 0 1px 6px rgba(25, 118, 210, 0.08);
+        }
+        .dark-mode .edu-highlight {
+            background: linear-gradient(90deg, #1565c0 40%, transparent 100%);
+            color: #fff;
+        }
+        /* Subtle highlight for key skills/certs */
+        .skill-highlight {
+            background: #fffde7;
+            border-radius: 5px;
+            padding: 1px 5px;
+            font-weight: 600;
+            color: #f9a825;
+        }
+        .dark-mode .skill-highlight {
+            background: #333;
+            color: #ffd54f;
+        }
         .section p {
             margin-bottom: 14px;
         }
@@ -54,7 +121,10 @@
             color: #0077b5;
         }
         .profiles a.github {
-            color: #333;
+            color: #666;
+        }
+        .dark-mode .profiles a.github {
+            color: #ccc;
         }
         .profiles a.kaggle {
             color: #20beff;
@@ -209,8 +279,8 @@
             display: none;
         }
         .topbar .navlinks a {
-            text-decoration: none;
-            color: inherit;
+            text-decoration: none !important;
+            color: inherit !important;
             font-weight: 500;
             padding: 4px 10px;
             border-radius: 999px;
@@ -553,10 +623,10 @@
         </a>
     </nav>
     <div class="topbar">
-        <a class="identity" href="#top">
+        <div class="identity">
             <span class="profile-icon" aria-hidden="true"></span>
             <span class="name">Uday Pratap</span>
-        </a>
+        </div>
         <span class="nav-divider" aria-hidden="true"></span>
         <div class="navlinks">
             <a href="#education">Education</a>
@@ -611,12 +681,12 @@
     <main class="page-container">
     <div class="section" id="top">
         <h1>Uday Pratap</h1>
-        <p>Address: CVD Line Delhi</p>
-        <p>Email: <!--email_off-->24ds3000019@ds.study.iitm.ac.in<!--/email_off--></p>
+        <p>Delhi, India</p>
+        <p>Email: <a href="mailto:udayprattap@gmail.com">udayprattap@gmail.com</a></p>
     </div>
 
     <div class="section profiles">
-        <h2>Contact & Profiles</h2>
+    <!-- Heading removed as requested -->
         <a class="github" href="https://github.com/udayprattap" target="_blank">GitHub</a>
         <a class="linkedin" href="https://www.linkedin.com/in/udayprattap/" target="_blank">LinkedIn</a>
         <a class="kaggle" href="https://www.kaggle.com/udayprattap" target="_blank">Kaggle</a>
@@ -627,7 +697,7 @@
     <div class="section">
         <h2>Introduction</h2>
         <p>
-            I’m a data science student who enjoys turning messy datasets into clear answers and useful products. My toolkit leans on Python, scikit-learn, pandas, and visual storytelling, but I’m just as excited about understanding the people behind the numbers. I’m currently at IIT Madras (Data Science PG Diploma) while wrapping up my Computer Science degree, and I’m keen to join a team where I can keep learning, share what I know, and ship thoughtful work.
+            I’m a data science student who builds small, reliable ML projects and explains results clearly. Recent work includes time-series forecasting, classification, and exploratory analysis with Python, pandas, and scikit-learn. I’m currently pursuing the IIT Madras Data Science PG Diploma alongside a CS degree and I’m looking for an internship where I can contribute quickly and keep leveling up.
         </p>
     </div>
 
@@ -635,14 +705,16 @@
         <h2>Education</h2>
         <ul>
             <li>
-                <strong>Postgraduate Diploma in Data Science</strong><br>
-                Indian Institute of Technology Madras<br>
-                2024-2025
+                <strong class="edu-highlight">Postgraduate Diploma in Data Science</strong><br>
+                <span class="edu-highlight">Indian Institute of Technology Madras</span><br>
+                2024-2025<br>
+                <em>Relevant Coursework:</em> <span class="skill-highlight">TensorFlow</span>, <span class="skill-highlight">Excel</span>, <span class="skill-highlight">Data Science</span>, Product Analysis, Business Analysis, <span class="skill-highlight">Predictive Analytics</span>, Google Sheets, <span class="skill-highlight">Statistical Modeling</span>, Data Management, Data Visualisation, <span class="skill-highlight">Python</span>, <span class="skill-highlight">Machine Learning</span>, <span class="skill-highlight">Data Cleaning</span>, Data Architecture, <span class="skill-highlight">Scikit-Learn</span>
             </li>
             <li>
                 <strong>Bachelor of Computer Science</strong><br>
                 Lachoo Memorial College of Science and Technology<br>
-                2022-2025
+                2022-2025<br>
+                <em>Relevant Coursework:</em> Database Management System (DBMS), Algorithms, <span class="skill-highlight">C++</span>, Operating Systems, Data Structures, <span class="skill-highlight">SQL</span>, Mathematics, Object-Oriented Programming (OOP), Problem Analysis, Physics
             </li>
         </ul>
     </div>
@@ -650,30 +722,43 @@
     <div class="section" id="skills">
         <h2>Technical Skills</h2>
         <ul>
-            <li>Programming Languages: Python, SQL</li>
-            <li>Libraries: scikit-learn, pandas, NumPy, matplotlib, seaborn</li>
-            <li>Machine Learning: Supervised & Unsupervised Learning, Time Series Analysis</li>
-            <li>Data Visualization: matplotlib, seaborn</li>
-            <li>Data Wrangling & Cleaning</li>
-            <li>Model Evaluation & Validation</li>
-            <li>Version Control: Git & GitHub</li>
-            <li>Cloud: Google Colab, Kaggle</li>
+            <li><strong>Proficient:</strong> Python, pandas, NumPy, scikit-learn, matplotlib, seaborn, SQL, C++</li>
+            <li><strong>Familiar:</strong> TensorFlow, XGBoost, CatBoost, LightGBM, statsmodels, Plotly, time series (SARIMA/ETS), feature engineering, predictive analytics</li>
+            <li><strong>Tools Used in Projects:</strong> Jupyter, Google Colab, VS Code, Git, GitHub, Docker, Hugging Face, FastAPI</li>
+            <li><strong>Other Skills:</strong> Data Cleaning, Data Wrangling, Data Management, Data Architecture, Product Analysis, Business Analysis, Exploratory Data Analysis (EDA), Statistical Modeling, Data Visualization (Google Sheets, Excel)</li>
         </ul>
     </div>
 
     <div class="section" id="certifications">
         <h2>Certifications & Credentials</h2>
+        <ul>
+            <li>SQL for Data Science – Scaler Academy</li>
+            <li>Supervised Machine Learning – Scaler Academy</li>
+            <li>Exploratory Data Analysis (EDA) & Visualization – Accenture Job Simulation (2024)</li>
+        </ul>
         <p>View my complete list of certifications and credentials on <a href="https://www.linkedin.com/in/udayprattap/details/certifications/" target="_blank">LinkedIn</a>.</p>
     </div>
 
     <div class="section" id="projects">
-        <h2>Projects & Experience</h2>
-        <ul>
-            <li><strong>Time Series Forecasting Project</strong> – Built predictive models for time series data using Python and scikit-learn.</li>
-            <li><strong>Kaggle Assignments</strong> – Completed multiple Kaggle competitions and assignments, focusing on real-world data problems.</li>
-            <li><strong>Mini Projects</strong> – Developed projects in supervised and unsupervised learning, including classification, clustering, and regression tasks.</li>
-            <li><strong>Data Analysis with Pandas & NumPy</strong> – Analyzed large datasets, performed feature engineering, and visualized insights.</li>
-        </ul>
+        <h2>Featured Projects</h2>
+        <div class="featured-project">
+            <h3>1. Eatery Rating Prediction</h3>
+            <p>Predict rating given to an eatery by the customer based on their review. Submitted predictions for the test data by learning from the training set.</p>
+            <iframe src="https://www.kaggle.com/embed/udayprattap/mlp-ka3-24d3000019" width="100%" height="350" style="border:1px solid #ccc; border-radius:8px; margin-bottom:8px;" allowfullscreen></iframe>
+            <p><a href="https://www.kaggle.com/code/udayprattap/mlp-ka3-24d3000019" target="_blank">View full notebook on Kaggle</a></p>
+        </div>
+        <div class="featured-project">
+            <h3>2. Flight Price Prediction</h3>
+            <p>Built regression models to predict flight prices based on structured features. Applied extensive data cleaning, preprocessing, and compared models including Linear Regression, Ridge, Lasso, Decision Tree, and Random Forest.</p>
+            <iframe src="https://www.kaggle.com/embed/udayprattap/mlp-ka1-24ds3000019" width="100%" height="350" style="border:1px solid #ccc; border-radius:8px; margin-bottom:8px;" allowfullscreen></iframe>
+            <p><a href="https://www.kaggle.com/code/udayprattap/mlp-ka1-24ds3000019" target="_blank">View full notebook on Kaggle</a></p>
+        </div>
+        <div class="featured-project">
+            <h3>3. Customer Churn Prediction</h3>
+            <p>Developed a classification pipeline to predict customer exits for a financial institution. Used XGBoost and CatBoost after visualizing data, handling outliers, and evaluating models with F1-score and confusion matrix.</p>
+            <iframe src="https://www.kaggle.com/embed/udayprattap/24ds3000019-ka2" width="100%" height="350" style="border:1px solid #ccc; border-radius:8px; margin-bottom:8px;" allowfullscreen></iframe>
+            <p><a href="https://www.kaggle.com/code/udayprattap/24ds3000019-ka2" target="_blank">View full notebook on Kaggle</a></p>
+        </div>
     </div>
 
     <div class="section" id="portfolio">
@@ -710,14 +795,7 @@
         </ul>
     </div>
 
-    <div class="section">
-        <h2>Personal Details</h2>
-        <ul>
-            <li>Date of Birth: 19-09-2003</li>
-            <li>Languages: English, Hindi</li>
-            <li>Nationality: Indian</li>
-        </ul>
-    </div>
+    <!-- Personal Details section removed for fairness and professionalism -->
 
     <div class="section" id="contact">
         <h2>Contact Me</h2>
