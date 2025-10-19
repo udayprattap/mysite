@@ -1,28 +1,32 @@
 # Uday Pratap — Data Science Portfolio
 
-A simple, polished, single-file personal portfolio built with vanilla HTML/CSS/JS. The site showcases education, skills, featured Kaggle projects (with inline previews/links), and contact options. It’s designed to be fast, responsive, and recruiter-friendly with subtle highlights and dark-mode support.
+A clean, production-ready single-page portfolio built with vanilla HTML/CSS/JS. Designed for recruiters and employers, it showcases education credentials (IIT Madras PG Diploma), technical skills, three featured Kaggle projects with notebook previews, extracurricular leadership, and contact options. The site is fast, fully responsive, and search-engine optimized.
 
 ## Features
 
-- Fixed glass-style top bar with touch-friendly horizontal nav
-- One-click “Back to top” via profile/name (clickable, keyboard accessible)
-- Responsive layout with dark and light themes
-- Subtle highlights for key credentials (IIT Madras) and skills
-- Featured projects with Kaggle notebook links and dynamic preview iframes
-- Social sidebar docked left; docks to a mobile-friendly bar on small screens
-- Contact form powered by Formspree
-- Basic SEO: meta description, OpenGraph tags, and JSON-LD Person schema
+- **Fixed glass-style top bar** with touch-friendly horizontal nav and smooth "back to top" on profile/name click (keyboard accessible)
+- **Dark/light theme** toggle respecting system preference
+- **Subtle highlights** for key credentials (IIT Madras education, core skills) in both themes
+- **Featured projects** with Kaggle notebook embeds/links (NLP, regression, classification)
+- **Social sidebar** docked left (GitHub, LinkedIn, YouTube, Kaggle, Instagram); docks to a centered mobile bar on small screens
+- **Contact form** powered by Formspree with browser validation
+- **SEO-ready**: meta description, OpenGraph tags, JSON-LD Person schema, robots.txt, sitemap.xml, and 404 page
+- **Favicon support**: SVG + ICO fallback for modern and legacy browsers
 
 ## Project Structure
 
 ```
 mysite/
 ├── index.html           # Single-page app with inline CSS/JS
-├── README.md            # This guide
-└── (optional assets)
+├── 404.html             # Friendly not-found page
+├── robots.txt           # Crawler permissions + sitemap link
+├── sitemap.xml          # SEO sitemap
+├── favicon.svg          # Scalable favicon (modern browsers)
+├── favicon.ico          # Fallback icon (legacy browsers)
+└── README.md            # This guide
 ```
 
-Everything lives in `index.html` to keep hosting trivial (GitHub Pages, Netlify, etc.).
+Everything is self-contained in `index.html` for trivial hosting (GitHub Pages, Netlify, Vercel, etc.). No build step required.
 
 ## Getting Started
 
@@ -70,8 +74,25 @@ Recommended on-page additions to improve recruiter signal:
 
 ## Deployment
 
-- GitHub Pages: push the repo and enable Pages for the `main` branch (root).
-- Netlify/Vercel: drag-drop or point to the repo; no build required.
+### GitHub Pages (recommended)
+1. Push the repo to GitHub.
+2. In Settings → Pages, set source to `main` branch (root).
+3. Your site will be live at `https://yourusername.github.io/mysite/` within minutes.
+4. Update `robots.txt` and `sitemap.xml` with your live URL.
+
+### Netlify / Vercel
+- Drag-drop the folder or connect the repo.
+- No build command needed; serve the root directory.
+- Custom domain: follow platform docs to add a `CNAME` record.
+
+## Files & Configuration
+
+- **robots.txt**: Allows all crawlers; points to `sitemap.xml`. Update the sitemap URL if using a custom domain.
+- **sitemap.xml**: Lists your main page. Update the `<loc>` URL and `<lastmod>` date when making significant changes.
+- **404.html**: Friendly error page with auto-redirect (5s) and a "Go to Home" button.
+- **favicon.svg / favicon.ico**: Brand icons. Replace with your own (tools like [favicon.io](https://favicon.io/) can help).
+- **Formspree action URL**: In `index.html`, swap `https://formspree.io/f/mblzbdnz` with your endpoint.
+- **OpenGraph / JSON-LD**: Update `og:url`, `og:image`, and `sameAs` links in the `<head>` to your live site and socials.
 
 ## Troubleshooting
 
@@ -81,11 +102,23 @@ Recommended on-page additions to improve recruiter signal:
 
 ## Roadmap / Nice-to-haves
 
-- Add a small “Highlights” row under the intro (chips with IIT Madras, core stack, focus areas)
-- Convert featured projects to cards with metrics shown inline
-- Replace Google Sheet portfolio embed with a fast list of links + tags
-- Add basic analytics (e.g., Plausible/GA4)
+- Add a small "Highlights" row under the intro (chips: IIT Madras, core stack, focus areas)
+- Convert featured projects to cards with inline metrics (RMSE, ROC-AUC, F1)
+- Replace Google Sheet portfolio embed with a fast link list + tags
+- Add basic analytics (e.g., Plausible, GA4)
+- Custom domain + HTTPS
+- Performance audit (Lighthouse score 95+)
+
+## Contributing
+
+Suggestions and improvements are welcome! Open an issue or PR if you spot something that could be better.
 
 ## License
 
-MIT — see `LICENSE` if you add one to the repo.
+MIT — you're free to fork and adapt this for your own portfolio. See `LICENSE` if added to the repo.
+
+---
+
+**Live site**: [https://udayprattap.github.io/mysite/](https://udayprattap.github.io/mysite/) (update with your actual URL)  
+**Author**: Uday Pratap  
+**Contact**: udayprattap@gmail.com | [LinkedIn](https://www.linkedin.com/in/udayprattap/)
