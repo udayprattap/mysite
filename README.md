@@ -1,124 +1,94 @@
-# Uday Pratap — Data Science Portfolio
+# 👨‍💻 Uday Pratap — Data Science Portfolio
 
-A clean, production-ready single-page portfolio built with vanilla HTML/CSS/JS. Designed for recruiters and employers, it showcases education credentials (IIT Madras PG Diploma), technical skills, three featured Kaggle projects with notebook previews, extracurricular leadership, and contact options. The site is fast, fully responsive, and search-engine optimized.
+[![Live Demo](https://img.shields.io/badge/demo-online-green.svg)](https://udayprattap.github.io/mysite/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub](https://img.shields.io/github/followers/udayprattap?label=follow&style=social)](https://github.com/udayprattap)
 
-## Features
+A professional, production-ready data science portfolio website designed to showcase projects, skills, and education. Built with performance and SEO in mind using vanilla HTML5, CSS3, and JavaScript.
 
-- **Fixed glass-style top bar** with touch-friendly horizontal nav and smooth "back to top" on profile/name click (keyboard accessible)
-- **Dark/light theme** toggle respecting system preference
-- **Subtle highlights** for key credentials (IIT Madras education, core skills) in both themes
-- **Featured projects** with Kaggle notebook embeds/links (NLP, regression, classification)
-- **Social sidebar** docked left (GitHub, LinkedIn, YouTube, Kaggle, Instagram); docks to a centered mobile bar on small screens
-- **Contact form** powered by Formspree with browser validation
-- **SEO-ready**: meta description, OpenGraph tags, JSON-LD Person schema, robots.txt, sitemap.xml, and 404 page
-- **Favicon support**: SVG + ICO fallback for modern and legacy browsers
+## 🚀 Features
 
-## Project Structure
+- **Responsive Design**: Mobile-first approach with glass-morphism UI elements.
+- **Dark/Light Mode**: Automatic system detection with manual toggle.
+- **Project Showcase**: Featured section for high-impact projects (e.g., Autonomous Agents, ML Pipelines).
+- **Interactive Elements**: Smooth scrolling, touch-friendly navigation, and embedded Kaggle notebooks.
+- **SEO Optimized**: Configured with OpenGraph, JSON-LD Schema, `robots.txt`, and `sitemap.xml`.
+- **Fast Performance**: Zero dependencies, pure vanilla implementation.
 
-```
+## 🛠️ Tech Stack
+
+- **Frontend**: HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+)
+- **Hosting**: GitHub Pages
+- **Forms**: Formspree Integration
+- **Analytics/SEO**: Google Structured Data, Open Graph Protocol
+
+## 📂 Project Structure
+
+```bash
 mysite/
-├── index.html           # Single-page app with inline CSS/JS
-├── 404.html             # Friendly not-found page
-├── robots.txt           # Crawler permissions + sitemap link
-├── sitemap.xml          # SEO sitemap
-├── favicon.svg          # Scalable favicon (modern browsers)
-├── favicon.ico          # Fallback icon (legacy browsers)
-└── README.md            # This guide
+├── index.html           # Main application file
+├── 404.html             # Custom 404 error page
+├── robots.txt           # SEO crawler directives
+├── sitemap.xml          # Website sitemap
+├── favicon.svg          # Modern vector favicon
+├── favicon.ico          # Legacy fallback favicon
+└── README.md            # Project documentation
 ```
 
-Everything is self-contained in `index.html` for trivial hosting (GitHub Pages, Netlify, Vercel, etc.). No build step required.
+## 🏁 Getting Started
 
-## Getting Started
+To run this project locally:
 
-1. Open `index.html` in any modern browser. No build step is required.
-2. To develop locally, use a static server (optional) for clean URLs.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/udayprattap/mysite.git
+   cd mysite
+   ```
 
-### Quick local preview (optional)
+2. **Run a local server**
+   Using Python:
+   ```bash
+   python3 -m http.server 8000
+   ```
+   Or using Node.js:
+   ```bash
+   npx serve .
+   ```
 
-- Python 3: `python -m http.server 8000`
-- Node: `npx serve .`
+3. **View in Browser**
+   Open `http://localhost:8000`
 
-Then visit http://localhost:8000
+## 🌟 Featured Projects
 
-## Customization
+The portfolio highlights key projects including:
+1. **Autonomous Multi-Modal Data Analysis Agent**: An intelligent agent integrating GPT-4, OCR, and audio processing.
+2. **Eatery Rating Prediction**: NLP-based rating prediction model.
+3. **Flight Price Prediction**: Regression analysis for fare forecasting.
+4. **Customer Churn Prediction**: Classification pipeline for customer retention.
 
-- Name, location, email: at the top section (`id="top"`).
-- Social links: in the left `.social-sidebar` nav.
-- Sections: edit or reorder `Education`, `Skills`, `Certifications`, `Featured Projects`, `Portfolio`, `Extracurricular`, `Contact`.
-- Highlights: tweak `.edu-highlight` and `.skill-highlight` in the CSS for emphasis colors.
-- Dark mode: handled by a simple toggle and `prefers-color-scheme` listener.
+## 🚀 Deployment
 
-## Featured Projects
+This project is optimized for **GitHub Pages**:
 
-Each featured project includes a short summary and a link to the full Kaggle notebook. If Kaggle blocks iframes in your browser, keep the link and optionally add a screenshot thumbnail.
+1. Go to repository **Settings** > **Pages**.
+2. Select `main` branch as the source.
+3. The site will be live at `https://udayprattap.github.io/mysite/`.
 
-Recommended on-page additions to improve recruiter signal:
-- Key outcomes for each project (e.g., RMSE/MAE, ROC-AUC, F1, recall@precision)
-- One line on data size and validation approach (e.g., 5-fold CV)
+## 🤝 Contributing
 
-## Contact Form (Formspree)
+Contributions, issues, and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/udayprattap/mysite/issues).
 
-- Replace the `action` URL with your own Formspree endpoint to receive submissions.
-- Form fields already include browser validation attributes.
+## 📝 License
 
-## SEO & Social
+This project is [MIT](LICENSE) licensed.
 
-- Meta description, OpenGraph tags, favicon, and Person schema are included.
-- Update `og:url`, `og:image`, and `sameAs` links to your canonical site URL and avatar.
+## 📬 Contact
 
-## Accessibility
-
-- Keyboard-accessible topbar identity (Enter/Space to go to top)
-- Aria labels on social links
-- Sufficient contrast for links in both themes
-
-## Deployment
-
-### GitHub Pages (recommended)
-1. Push the repo to GitHub.
-2. In Settings → Pages, set source to `main` branch (root).
-3. Your site will be live at `https://yourusername.github.io/mysite/` within minutes.
-4. Update `robots.txt` and `sitemap.xml` with your live URL.
-
-### Netlify / Vercel
-- Drag-drop the folder or connect the repo.
-- No build command needed; serve the root directory.
-- Custom domain: follow platform docs to add a `CNAME` record.
-
-## Files & Configuration
-
-- **robots.txt**: Allows all crawlers; points to `sitemap.xml`. Update the sitemap URL if using a custom domain.
-- **sitemap.xml**: Lists your main page. Update the `<loc>` URL and `<lastmod>` date when making significant changes.
-- **404.html**: Friendly error page with auto-redirect (5s) and a "Go to Home" button.
-- **favicon.svg / favicon.ico**: Brand icons. Replace with your own (tools like [favicon.io](https://favicon.io/) can help).
-- **Formspree action URL**: In `index.html`, swap `https://formspree.io/f/mblzbdnz` with your endpoint.
-- **OpenGraph / JSON-LD**: Update `og:url`, `og:image`, and `sameAs` links in the `<head>` to your live site and socials.
-
-## Troubleshooting
-
-- Kaggle iframes not loading: use direct links; add screenshots as inline previews.
-- Topbar overlaps on tiny screens: content uses `scroll-margin-top`; verify media queries.
-- Dark mode not toggling: ensure the toggle button is present and JS runs (no CSP blocking inline scripts).
-
-## Roadmap / Nice-to-haves
-
-- Add a small "Highlights" row under the intro (chips: IIT Madras, core stack, focus areas)
-- Convert featured projects to cards with inline metrics (RMSE, ROC-AUC, F1)
-- Replace Google Sheet portfolio embed with a fast link list + tags
-- Add basic analytics (e.g., Plausible, GA4)
-- Custom domain + HTTPS
-- Performance audit (Lighthouse score 95+)
-
-## Contributing
-
-Suggestions and improvements are welcome! Open an issue or PR if you spot something that could be better.
-
-## License
-
-MIT — you're free to fork and adapt this for your own portfolio. See `LICENSE` if added to the repo.
+**Uday Pratap**
+- 📧 Email: [udayprattap@gmail.com](mailto:udayprattap@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/udayprattap](https://www.linkedin.com/in/udayprattap/)
+- 🐙 GitHub: [@udayprattap](https://github.com/udayprattap)
 
 ---
-
-**Live site**: [https://udayprattap.github.io/mysite/](https://udayprattap.github.io/mysite/) (update with your actual URL)  
-**Author**: Uday Pratap  
-**Contact**: udayprattap@gmail.com | [LinkedIn](https://www.linkedin.com/in/udayprattap/)
+*Built with ❤️ by Uday Pratap*
